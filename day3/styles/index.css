@@ -1,0 +1,209 @@
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #334;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  background-color: skyblue;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.circle .sand {
+  background-color: #fff06b;
+  position: relative;
+  top: 140px;
+  height: 33%;
+  width: 100%;
+}
+.circle .pyramide #side2 {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  top: -46px;
+  left: 40px;
+  z-index: 1;
+  animation: side2shadow 4s linear infinite;
+}
+.circle .pyramide #side1 {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 25px solid transparent;
+  top: 14px;
+  left: 40px;
+  z-index: 2;
+  animation: side1shadow 4s linear infinite;
+}
+.circle .pyramide #shadow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  animation: shadow 4s linear infinite;
+}
+.circle .daytime {
+  position: relative;
+  border-radius: 100%;
+  top: -150px;
+  left: -30px;
+  height: 230px;
+  width: 270px;
+  animation: day 4s linear infinite;
+}
+.circle .daytime #sun {
+  background-color: orange;
+  position: relative;
+  top: 100px;
+  width: 35px;
+  height: 35px;
+  z-index: 3;
+  border-radius: 100%;
+}
+
+.dark {
+  position: absolute;
+  background-color: rgba(51, 51, 68, 0);
+  height: 300px;
+  width: 300px;
+  left: -20px;
+  top: -20px;
+  border-radius: 100%;
+  z-index: 4;
+  animation: dark 4s linear infinite;
+}
+
+@keyframes day {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  80% {
+    transform: rotate(200deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+@keyframes side1shadow {
+  0% {
+    border-bottom: 60px solid #e4e4e4;
+  }
+  50% {
+    border-bottom: 60px solid #e4e4e4;
+  }
+  70% {
+    border-bottom: 60px solid #ccc;
+  }
+  95% {
+    border-bottom: 60px solid #ccc;
+  }
+  100% {
+    border-bottom: 60px solid #e4e4e4;
+  }
+}
+@keyframes side2shadow {
+  0% {
+    border-bottom: 60px solid #ccc;
+  }
+  50% {
+    border-bottom: 60px solid #ccc;
+  }
+  70% {
+    border-bottom: 60px solid #e4e4e4;
+  }
+  95% {
+    border-bottom: 60px solid #e4e4e4;
+  }
+  100% {
+    border-bottom: 60px solid #ccc;
+  }
+}
+@keyframes shadow {
+  0% {
+    top: 140px;
+    left: 40px;
+    border-left: 110px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 1px solid #b4b462;
+  }
+  20% {
+    top: 140px;
+    left: 40px;
+    border-left: 110px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 30px solid #b4b462;
+  }
+  50% {
+    top: 140px;
+    left: 40px;
+    border-left: 110px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 30px solid #b4b462;
+  }
+  60% {
+    top: 140px;
+    left: 40px;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 10px solid #b4b462;
+  }
+  75% {
+    top: 140px;
+    left: 40px;
+    border-left: 10px solid transparent;
+    border-right: 110px solid transparent;
+    border-top: 30px solid #b4b462;
+  }
+  100% {
+    top: 140px;
+    left: 40px;
+    border-left: 10px solid transparent;
+    border-right: 110px solid transparent;
+    border-top: 1px solid #b4b462;
+  }
+}
+@keyframes dark {
+  0% {
+    background-color: rgba(51, 51, 68, 0.7);
+  }
+  10% {
+    background-color: rgba(51, 51, 68, 0);
+  }
+  70% {
+    background-color: rgba(51, 51, 68, 0);
+  }
+  95% {
+    background-color: #333344;
+  }
+  100% {
+    background-color: rgba(51, 51, 68, 0.7);
+  }
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,209 @@
+// variables
+$lightgray: #e4e4e4;
+$darkgray: #ccc;
+$sand: #fff06b;
+$shadowedsand: #b4b462;
+$background: #334;
+
+@mixin pyborders($left, $right) {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: $left solid transparent;
+  border-right: $right solid transparent;
+}
+
+@mixin changeshadow($bleft, $bright, $btop) {
+  top: 140px;
+  left: 40px;
+  border-left: $bleft solid transparent;
+  border-right: $bright solid transparent;
+  border-top: $btop solid $shadowedsand;
+}
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: $background;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  background-color: skyblue;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+
+  .sand {
+    background-color: $sand;
+    position: relative;
+    top: 140px;
+    height: 33%;
+    width: 100%;
+  }
+
+  .pyramide {
+    #side2 {
+      @include pyborders(60px, 60px);
+      top: -46px;
+      left: 40px;
+      z-index: 1;
+      animation: side2shadow 4s linear infinite;
+    }
+    #side1 {
+      @include pyborders(60px, 25px);
+      top: 14px;
+      left: 40px;
+      z-index: 2;
+      animation: side1shadow 4s linear infinite;
+    }
+    #shadow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      animation: shadow 4s linear infinite;
+    }
+  }
+  .daytime {
+    position: relative;
+    border-radius: 100%;
+    top: -150px;
+    left: -30px;
+    height: 230px;
+    width: 270px;
+    #sun {
+      background-color: orange;
+      position: relative;
+      top: 100px;
+      width: 35px;
+      height: 35px;
+      z-index: 3;
+      border-radius: 100%;
+    }
+    animation: day 4s linear infinite;
+  }
+}
+
+.dark {
+  position: absolute;
+  background-color: rgba($color: $background, $alpha: 0);
+  height: 300px;
+  width: 300px;
+  left: -20px;
+  top: -20px;
+  border-radius: 100%;
+  z-index: 4;
+  animation: dark 4s linear infinite;
+}
+
+@keyframes day {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  80% {
+    transform: rotate(200deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes side1shadow {
+  0% {
+    border-bottom: 60px solid $lightgray;
+  }
+  50% {
+    border-bottom: 60px solid $lightgray;
+  }
+  70% {
+    border-bottom: 60px solid $darkgray;
+  }
+  95% {
+    border-bottom: 60px solid $darkgray;
+  }
+  100% {
+    border-bottom: 60px solid $lightgray;
+  }
+}
+
+@keyframes side2shadow {
+  0% {
+    border-bottom: 60px solid $darkgray;
+  }
+  50% {
+    border-bottom: 60px solid $darkgray;
+  }
+  70% {
+    border-bottom: 60px solid $lightgray;
+  }
+  95% {
+    border-bottom: 60px solid $lightgray;
+  }
+  100% {
+    border-bottom: 60px solid $darkgray;
+  }
+}
+
+@keyframes shadow {
+  0% {
+    @include changeshadow(110px, 10px, 1px);
+  }
+  20% {
+    @include changeshadow(110px, 10px, 30px);
+  }
+  50% {
+    @include changeshadow(110px, 10px, 30px);
+  }
+  60% {
+    @include changeshadow(60px, 60px, 10px);
+  }
+  75% {
+    @include changeshadow(10px, 110px, 30px);
+  }
+  100% {
+    @include changeshadow(10px, 110px, 1px);
+  }
+}
+
+@keyframes dark {
+  0% {
+    background-color: rgba($color: $background, $alpha: 0.7);
+  }
+  10% {
+    background-color: rgba($color: $background, $alpha: 0);
+  }
+  70% {
+    background-color: rgba($color: $background, $alpha: 0);
+  }
+  95% {
+    background-color: rgba($color: $background, $alpha: 1);
+  }
+  100% {
+    background-color: rgba($color: $background, $alpha: 0.7);
+  }
+}
