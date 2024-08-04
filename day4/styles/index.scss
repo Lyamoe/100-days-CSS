@@ -1,0 +1,138 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+// Variables
+$background: #f57196;
+$circle: #fff;
+$bigsize: 100px;
+$midsize: $bigsize - ($bigsize * 0.33);
+$smallsize: $bigsize - ($bigsize * 0.66);
+
+@mixin size ($size) {
+    position: absolute;
+    top: calc(50% - ($size / 2));
+    left: calc(50% - ($size / 2));
+    width: $size;
+    height: $size;
+}
+
+// Elements
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: $background;
+  color: #333;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+    border-radius: 100%;
+    background-color: $circle;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
+.big {
+    @include size($bigsize);
+    z-index: 1;
+    animation: scalebig 5s infinite ease-out;
+}
+
+.middle {
+    @include size($midsize);
+    animation: scalemid 5s infinite ease-out;
+    z-index: 2;
+}
+
+.small {
+    @include size($smallsize);
+    animation: scalesmall 5s infinite ease-out;
+    z-index: 3;
+}
+
+// Animations
+@keyframes scalebig {
+    0% {
+        transform: scale(0, 0);
+    }
+    21% {
+        transform: scale(0.9, 0.9);
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+    71% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(0, 0);
+    }
+}
+
+@keyframes scalemid {
+    0% {
+        transform: scale(0, 0);
+    }
+    16% {
+        transform: scale(0, 0);
+    }
+    37% {
+        transform: scale(0.9, 0.9);
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+    61% {
+        transform: scale(1, 1);
+    }
+    84% {
+        transform: scale(0, 0);
+    }
+    100% {
+        transform: scale(0, 0);
+    }
+}
+
+@keyframes scalesmall {
+    0% {
+        transform: scale(0, 0);
+    }
+    32% {
+        transform: scale(0, 0);
+    }
+    43% {
+        transform: scale(0.9, 0.9);;
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+    57% {
+        transform: scale(1, 1);
+    }
+    68% {
+        transform: scale(0, 0);
+    }
+    100% {
+        transform: scale(0, 0);
+    }
+}
