@@ -1,0 +1,156 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+// VARIABLES
+$framesize: 400px;
+$imgsize: 80px;
+$border-space: 8px;
+$background: #1d9f70;
+$font-color: #15553d;
+$secondary-color: #66ceb4;
+$tertiary-color: #6ee1c5;
+$white: #fff;
+
+@mixin collumn-flex($space) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $space;
+}
+
+@mixin border($open) {
+  border: 1px solid $background;
+  border-radius: 100%;
+  width: calc($imgsize + $open);
+  height: calc($imgsize + $open);
+  position: absolute;
+  transition: all 2s ease;
+}
+
+// use only the available space inside the 400x400 frame
+*,
+::after,
+::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: $framesize;
+  height: $framesize;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: $background;
+  color: #333;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $white;
+  height: calc($framesize * 0.8);
+  width: calc($framesize * 0.8);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.4);
+  .profile {
+    text-align: center;
+    width: 65%;
+  }
+  .stats {
+    text-align: center;
+    width: 35%;
+  }
+}
+
+h1 {
+  color: $font-color;
+  font-size: medium;
+}
+span {
+  font-size: 13px;
+  font-weight: lighter;
+}
+
+.profile {
+  @include collumn-flex(space-around);
+  align-items: center;
+  padding: 20px;
+  h1 {
+    padding-top: 10px;
+  }
+  button {
+    border: 1.5px solid $secondary-color;
+    border-radius: 20px;
+    background-color: $white;
+    margin: 0 auto;
+    height: 30px;
+    width: 130px;
+    transition: background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      background-color: $secondary-color;
+      color: $white;
+    }
+  }
+}
+
+#b1 {
+  @include border($border-space);
+  border-right: 1px solid transparent;
+  top: 23px;
+  left: 60px;
+}
+#b2 {
+  @include border($border-space * 2);
+  border-left: 1px solid transparent;
+  top: 19px;
+  left: 55px;
+}
+img {
+  width: $imgsize;
+  height: $imgsize;
+  border-radius: 100%;
+  position: relative;
+  top: 10%;
+}
+.borders:hover {
+  #b1 {
+    transform: rotate(360deg);
+  }
+  #b2 {
+    transform: rotate(-360deg);
+  }
+}
+
+.stats {
+  @include collumn-flex(space-between);
+  div {
+    height: 33%;
+    justify-content: space-between;
+    background-color: $secondary-color;
+    transition: background-color 0.5s ease-in-out;
+    h1 {
+      position: relative;
+      top: 30%;
+    }
+    &:hover {
+      background-color: $tertiary-color;
+    }
+  }
+}

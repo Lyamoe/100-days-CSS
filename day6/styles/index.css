@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
-*, ::after, ::before {
+*,
+::after,
+::before {
   margin: 0;
   box-sizing: border-box;
 }
@@ -38,6 +40,7 @@
   width: 320px;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 .container .profile {
   text-align: center;
@@ -62,11 +65,11 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   padding: 20px;
 }
-.profile img {
-  border-radius: 100%;
-  margin: 0 auto;
+.profile h1 {
+  padding-top: 10px;
 }
 .profile button {
   border: 1.5px solid #66ceb4;
@@ -75,21 +78,63 @@ span {
   margin: 0 auto;
   height: 30px;
   width: 130px;
+  transition: background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 .profile button:hover {
   background-color: #66ceb4;
   color: #fff;
 }
 
+#b1 {
+  border: 1px solid #1d9f70;
+  border-radius: 100%;
+  width: 88px;
+  height: 88px;
+  position: absolute;
+  transition: all 2s ease;
+  border-right: 1px solid transparent;
+  top: 23px;
+  left: 60px;
+}
+
+#b2 {
+  border: 1px solid #1d9f70;
+  border-radius: 100%;
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  transition: all 2s ease;
+  border-left: 1px solid transparent;
+  top: 19px;
+  left: 55px;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  position: relative;
+  top: 10%;
+}
+
+.borders:hover #b1 {
+  transform: rotate(360deg);
+}
+.borders:hover #b2 {
+  transform: rotate(-360deg);
+}
+
 .stats {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .stats div {
   height: 33%;
   justify-content: space-between;
   background-color: #66ceb4;
+  transition: background-color 0.5s ease-in-out;
 }
 .stats div h1 {
   position: relative;
