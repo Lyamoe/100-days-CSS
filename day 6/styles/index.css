@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+*, ::after, ::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #1d9f70;
+  color: #333;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  height: 320px;
+  width: 320px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container .profile {
+  text-align: center;
+  width: 65%;
+}
+.container .stats {
+  text-align: center;
+  width: 35%;
+}
+
+h1 {
+  color: #15553d;
+  font-size: medium;
+}
+
+span {
+  font-size: 13px;
+  font-weight: lighter;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+}
+.profile img {
+  border-radius: 100%;
+  margin: 0 auto;
+}
+.profile button {
+  border: 1.5px solid #66ceb4;
+  border-radius: 20px;
+  background-color: #fff;
+  margin: 0 auto;
+  height: 30px;
+  width: 130px;
+}
+.profile button:hover {
+  background-color: #66ceb4;
+  color: #fff;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.stats div {
+  height: 33%;
+  justify-content: space-between;
+  background-color: #66ceb4;
+}
+.stats div h1 {
+  position: relative;
+  top: 30%;
+}
+.stats div:hover {
+  background-color: #6ee1c5;
+}/*# sourceMappingURL=index.css.map */
